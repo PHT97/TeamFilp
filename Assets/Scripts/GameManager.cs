@@ -9,7 +9,6 @@ using System.Linq;
 public class GameManager : MonoBehaviour
 {
     public Text timeTxt;
-    float time;
 
     public Text matchTxt;
     public GameObject card;
