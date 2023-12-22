@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
-
-public class GameManager : MonoBehaviour
+    
+// AS1234
+public class gameManager : MonoBehaviour
 {
     public Text timeTxt;
     float time;
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     public Sprite[] sprites;
 
-    public static GameManager I;
+    public static gameManager I;
 
     void Awake()
     {
@@ -89,6 +90,11 @@ public class GameManager : MonoBehaviour
             matchTxt.text = "실패!";
             firstCard.GetComponent<card>().closeCard();
             secondCard.GetComponent<card>().closeCard();
+
+            //Sprite Renderer = GameObject에 2D이미지를 표시하는 컴포넌트
+            //"back"을 찾아서 color를 새롭게 바꾸는 코드
+            firstCard.transform.Find("back").GetComponent<SpriteRenderer>().color = new Color(140 / 255f, 140 / 255f, 160 / 255f, 255 / 255f);
+            secondCard.transform.Find("back").GetComponent<SpriteRenderer>().color = new Color(140 / 255f, 140 / 255f, 160 / 255f, 255 / 255f);
         }
 
         firstCard = null;
