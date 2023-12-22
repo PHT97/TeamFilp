@@ -653,9 +653,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 774885bd5999eba41a3557adde8e8f9a, type: 3}
   - {fileID: 21300000, guid: 2e05b15044acfa74ab9ca2ca209597df, type: 3}
   - {fileID: 21300000, guid: e419e5c6c40ea7146b6f2c9dd4539ad5, type: 3}
+  endPanel: {fileID: 1470174631}
   counter: 0
-  count: {fileID: 0}
-  cardCounter: 0
+  count: {fileID: 334219104}
 --- !u!4 &773667206
 Transform:
   m_ObjectHideFlags: 0
@@ -858,6 +858,7 @@ GameObject:
   - component: {fileID: 831827963}
   - component: {fileID: 831827962}
   - component: {fileID: 831827961}
+  - component: {fileID: 831827965}
   m_Layer: 5
   m_Name: retryBtn
   m_TagString: Untagged
@@ -928,7 +929,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 937006144}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 831827965}
+        m_TargetAssemblyTypeName: retryBtn, Assembly-CSharp
+        m_MethodName: retryGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &831827962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,6 +1003,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &831827965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831827959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f4176464cc9a74cb26d81fbffd548e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &937006142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,7 +1352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1470174632
 RectTransform:
   m_ObjectHideFlags: 0
