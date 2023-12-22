@@ -640,7 +640,8 @@ MonoBehaviour:
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   endTxt: {fileID: 44991685}
-  match: {fileID: 8300000, guid: cc8628b967d8bb44f8415c78554dd36c, type: 3}
+  match: {fileID: 8300000, guid: f5b287c06cd03884097752212cec37c3, type: 3}
+  fail: {fileID: 8300000, guid: 6dac7fed024311b43bbcb02074f635e3, type: 3}
   audioSource: {fileID: 773667207}
   sprites:
   - {fileID: 21300000, guid: 16190e2b96f0332429845ff2af33098c, type: 3}
@@ -1224,7 +1225,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1318,7 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9f55dd436ac6d4b95a997835c0ab2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmusic: {fileID: 8300000, guid: 4aef32fa238e0d44ebd0c2134dcd1135, type: 3}
+  bgmusic: {fileID: 8300000, guid: ce2c8a9258392bb4ab746c7e2142799d, type: 3}
   audioSource: {fileID: 1111305835}
 --- !u!4 &1111305837
 Transform:

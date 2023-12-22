@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject endTxt;
 
     public AudioClip match;
+    public AudioClip fail;
     public AudioSource audioSource;
 
     public Sprite[] sprites;
@@ -111,6 +112,7 @@ public class GameManager : MonoBehaviour
             //"back"을 찾아서 color를 새롭게 바꾸는 코드
             firstCard.transform.Find("back").GetComponent<SpriteRenderer>().color = new Color(140 / 255f, 140 / 255f, 160 / 255f, 255 / 255f);
             secondCard.transform.Find("back").GetComponent<SpriteRenderer>().color = new Color(140 / 255f, 140 / 255f, 160 / 255f, 255 / 255f);
+            audioSource.PlayOneShot(fail);
         }
 
         firstCard = null;

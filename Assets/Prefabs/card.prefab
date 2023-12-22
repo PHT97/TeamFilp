@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 2142159987797228923}
-  flip: {fileID: 8300000, guid: 10c0dfea1fbcff3448f2e6477e7123d5, type: 3}
+  flip: {fileID: 8300000, guid: a05ba843434140e4caf83e9cdec71576, type: 3}
   audioSource: {fileID: 5046917813983480454}
   cardName: 
 --- !u!114 &6094177277984928181
