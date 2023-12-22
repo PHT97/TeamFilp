@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject firstCard;
     public GameObject secondCard;
     public GameObject endTxt;
+    public GameObject audioManager;
 
     public AudioClip match;
     public AudioClip fail;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1.0f;
+        audioManager.SetActive(true);
         int[] rtans = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9 };
         //OrderBy 정렬하겠다 Random.Range 랜덤한 순서로 ToArray() 배열로 만든다
         rtans = rtans.OrderBy(item => Random.Range(-1.0f, 1.0f)).ToArray();
@@ -128,6 +130,7 @@ public class GameManager : MonoBehaviour
         endPanel.SetActive(true);
         count.text = counter.ToString();
         Time.timeScale = 0f;
+        audioManager.SetActive(false);
     }
 
     public void retryGame()

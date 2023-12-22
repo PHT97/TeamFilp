@@ -640,6 +640,7 @@ MonoBehaviour:
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   endTxt: {fileID: 44991685}
+  audioManager: {fileID: 1111305834}
   match: {fileID: 8300000, guid: f5b287c06cd03884097752212cec37c3, type: 3}
   fail: {fileID: 8300000, guid: 6dac7fed024311b43bbcb02074f635e3, type: 3}
   audioSource: {fileID: 773667207}
@@ -657,6 +658,7 @@ MonoBehaviour:
   endPanel: {fileID: 1470174631}
   counter: 0
   count: {fileID: 334219104}
+  cardCounter: 0
 --- !u!4 &773667206
 Transform:
   m_ObjectHideFlags: 0
