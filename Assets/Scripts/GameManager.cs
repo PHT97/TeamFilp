@@ -22,12 +22,13 @@ public class GameManager : MonoBehaviour
 
     public Sprite[] sprites;
 
+    // 결과창
+    public GameObject endPanel;
     // 카드 매칭 시도 횟수 카운터
     public int counter = 0;
     // 카드 매칭 시도 횟수 Text
     public Text count;
-    // 현재 게임에 뒤집힌 카드 카운터
-    public int cardCounter = 0;
+    
 
     public static GameManager I;
 
@@ -118,8 +119,10 @@ public class GameManager : MonoBehaviour
 
     void GameEnd()
     {
-        endTxt.SetActive(true);
+        //endTxt.SetActive(true);
         //endTxt.text = counter.ToString();
+        endPanel.SetActive(true);
+        count.text = counter.ToString();
         Time.timeScale = 0f;
     }
 
