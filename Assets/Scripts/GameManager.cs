@@ -9,6 +9,7 @@ using System.Linq;
 public class GameManager : MonoBehaviour
 {
     public Text timeTxt;
+    public float time;
 
     public Text matchTxt;
     public GameObject card;
@@ -20,6 +21,13 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSource;
 
     public Sprite[] sprites;
+
+    // 카드 매칭 시도 횟수 카운터
+    public int counter = 0;
+    // 카드 매칭 시도 횟수 Text
+    public Text count;
+    // 현재 게임에 뒤집힌 카드 카운터
+    public int cardCounter = 0;
 
     public static GameManager I;
 
@@ -70,6 +78,9 @@ public class GameManager : MonoBehaviour
 
     public void isMatched()
     {
+        // 시도 횟수 증가
+        counter++;
+
         //firstCard와 secondCard 같은지 판단
         string firstCardImage = firstCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite.name;
         string secondCardImage = secondCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite.name;
@@ -108,6 +119,7 @@ public class GameManager : MonoBehaviour
     void GameEnd()
     {
         endTxt.SetActive(true);
+        //endTxt.text = counter.ToString();
         Time.timeScale = 0f;
     }
 

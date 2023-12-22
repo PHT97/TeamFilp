@@ -11,6 +11,8 @@ public class card : MonoBehaviour
 
     public string cardName;
 
+    float timeSpan = 999.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,13 @@ public class card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameManager.I.time - timeSpan >= 5.0f)
+        {
+            timeSpan = 999.0f;
+            GameManager.I.firstCard.GetComponent<card>().closeCard();
+
+            GameManager.I.firstCard = null;
+        }
     }
 
     public void openCard()
