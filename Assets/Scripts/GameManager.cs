@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     public int counter = 0;
     // 카드 매칭 시도 횟수 Text
     public Text count;
+    // 현재 게임에 뒤집힌 카드 수
+    public int cardCounter = 0;
     
 
     public static GameManager I;
