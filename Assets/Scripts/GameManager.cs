@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using System.Linq;
     
 // AS1234
-public class gameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public Text timeTxt;
     float time;
@@ -22,7 +22,7 @@ public class gameManager : MonoBehaviour
 
     public Sprite[] sprites;
 
-    public static gameManager I;
+    public static GameManager I;
 
     void Awake()
     {

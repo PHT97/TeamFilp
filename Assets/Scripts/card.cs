@@ -30,13 +30,13 @@ public class card : MonoBehaviour
         transform.Find("front").gameObject.SetActive(true);
         transform.Find("back").gameObject.SetActive(false);
 
-        if(gameManager.I.firstCard == null)
+        if(GameManager.I.firstCard == null)
         {
-            gameManager.I.firstCard = gameObject;
+            GameManager.I.firstCard = gameObject;
         } else
         {
-            gameManager.I.secondCard = gameObject;
-            gameManager.I.isMatched();
+            GameManager.I.secondCard = gameObject;
+            GameManager.I.isMatched();
         }
     }
 
