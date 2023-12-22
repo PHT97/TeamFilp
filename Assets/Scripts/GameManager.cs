@@ -58,7 +58,12 @@ public class GameManager : MonoBehaviour
         time += Time.deltaTime;
         timeTxt.text = time.ToString("N2");
 
-        if(time > 30.0f)
+        if (time > 20.0f)
+        {
+            timeTxt.text = "<color=red>" + time.ToString("N2") + "</color>"; // timeTxt의 색을 빨간색으로 변경
+        }
+
+        if (time > 30.0f)
         {
             GameEnd();
         }

@@ -6,6 +6,8 @@ public class audioManager : MonoBehaviour
 {
     public AudioClip bgmusic;
     public AudioSource audioSource;
+    float newSpeed = 1.2f; // 배경음의 배속 속도
+    float time = 0.0f; // 시간초
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,10 @@ public class audioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        time += Time.deltaTime;
+        if (time > 20f)
+        {
+            audioSource.GetComponent<AudioSource>().pitch = newSpeed; // 오디오소스의 속도를 새로운 속도로하기
+        }
     }
 }
