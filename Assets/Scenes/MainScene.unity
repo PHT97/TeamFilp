@@ -636,7 +636,7 @@ MonoBehaviour:
   timeTxt: {fileID: 1663030555}
   time: 0
   matchTxt: {fileID: 789811643}
-  card: {fileID: 701419472160219834, guid: 1254fcb2783887d4e94f8c72f5b8650e, type: 3}
+  card: {fileID: 5131717585455315412, guid: 1254fcb2783887d4e94f8c72f5b8650e, type: 3}
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   endTxt: {fileID: 44991685}
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_Text: 
 --- !u!95 &789811647
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -864,10 +864,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &831827959
 GameObject:
   m_ObjectHideFlags: 0

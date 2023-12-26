@@ -42,10 +42,9 @@ public class card : MonoBehaviour
 
         audioSource.PlayOneShot(flip);
         anim.SetBool("isOpen", true);
-        transform.Find("front").gameObject.SetActive(true);
-        transform.Find("back").gameObject.SetActive(false);
+        Invoke("openCardInvoke", 0.2f); // 0.2초 후 실행
 
-        if(GameManager.I.firstCard == null)
+        if (GameManager.I.firstCard == null)
         {
             GameManager.I.firstCard = gameObject;
 
@@ -56,6 +55,12 @@ public class card : MonoBehaviour
             GameManager.I.secondCard = gameObject;
             GameManager.I.isMatched();
         }
+    }
+
+    void openCardInvoke()
+    {
+        transform.Find("back").gameObject.SetActive(false);
+        transform.Find("front").gameObject.SetActive(true);
     }
 
     public void destroyCard()
