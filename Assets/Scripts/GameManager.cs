@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
-    
+
 // AS1234
 public class GameManager : MonoBehaviour
 {
@@ -39,6 +39,13 @@ public class GameManager : MonoBehaviour
     public Text count;
     // 현재 게임에 뒤집힌 카드 수
     public int cardCounter = 0;
+    // 점수 표시 Text
+    public Text scoreTxt;
+    // 점수
+    public int score = 30;      // 기본 점수
+    // 틀릴 경우 시간 감소가 되는 time과 별개의 시간
+    // 첫 번째 카드가 뒤집히고 나서 5초 뒤를 카운트하기 위한 시간입니다.
+    public float gameTime;
     
 
     public static GameManager I;
@@ -65,6 +72,8 @@ public class GameManager : MonoBehaviour
             time = 60.0f;
         }
 
+        gameTime = time;
+
         Time.timeScale = 1.0f;
         audioManager.SetActive(true);
 
@@ -85,6 +94,7 @@ public class GameManager : MonoBehaviour
         {
             //시간이 감소
             time -= Time.deltaTime;
+            gameTime -= Time.deltaTime;
             //전체 시간이 60초보다 클때
             if (time >= 60.0f)
             {
@@ -168,6 +178,9 @@ public class GameManager : MonoBehaviour
             firstCard.GetComponent<card>().destroyCard();
             secondCard.GetComponent<card>().destroyCard();
 
+            // 점수 더하기
+            sumScore(10);
+
             int cardsLeft = GameObject.Find("cards").transform.childCount;
             if(cardsLeft == 2)
             {
@@ -180,6 +193,9 @@ public class GameManager : MonoBehaviour
             showTxt("실패!");
             firstCard.GetComponent<card>().closeCard();
             secondCard.GetComponent<card>().closeCard();
+
+            // 점수 차감하기
+            sumScore(-5);
 
             //Sprite Renderer = GameObject에 2D이미지를 표시하는 컴포넌트
             //"back"을 찾아서 color를 새롭게 바꾸는 코드
@@ -218,11 +234,30 @@ public class GameManager : MonoBehaviour
         matchTxt.SetActive(true);
     }
 
+    void sumScore(int a)
+    {
+        score += a;
+
+        if(score <= 0)
+        {
+            score = 0;
+        }
+    }
+
     void GameEnd()
     {
-        //endTxt.SetActive(true);
-        //endTxt.text = counter.ToString();
+        Debug.Log("GameEnd");
+        // 결과창 띄우기
         endPanel.SetActive(true);
+
+        float endTime = time;
+
+        // 남은 시간의 십의 자리 수 * 5 만큼 점수 더해주기
+        // score += (int)(제한시간 - time) / 10 * 5;
+        sumScore( (int)endTime / 10 * 5);
+        // 점수 표기
+        scoreTxt.text = score.ToString();
+
         count.text = counter.ToString();
         Time.timeScale = 0f;
         audioManager.SetActive(false);

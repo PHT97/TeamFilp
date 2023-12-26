@@ -1,3 +1,4 @@
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,8 @@ public class card : MonoBehaviour
 
     public string cardName;
 
-    // Ã¹ ¹øÂ° Ä«µå µÚÁıÈù ½Ã°£ ÀúÀå
-    float check_time = 999.0f;
+    // ì²« ë²ˆì§¸ ì¹´ë“œ ë’¤ì§‘íŒ ì‹œê°„ ì €ì¥
+    float check_time = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,33 +24,34 @@ public class card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Ã¹ ¹øÂ° Ä«µå°¡ µÚÁıÈùÁö 5ÃÊ°¡ Áö³¯ °æ¿ì
-        if (GameManager.I.time - check_time >= 5.0f)
+        // ì œí•œ ì‹œê°„ì„ ê°ì†Œí•˜ë„ë¡ ë³€ê²½í•  ê²½ìš°
+        if (check_time - GameManager.I.gameTime >= 5.0f)
         {
-            check_time = 999.0f;
-            GameManager.I.firstCard.GetComponent<card>().closeCard();   // Ã¹ ¹øÂ° Ä«µå ´Ù½Ã µÚÁı±â
+            check_time = 0.0f;
+            GameManager.I.firstCard.GetComponent<card>().closeCard();
 
-            GameManager.I.firstCard = null;     // Ã¹ ¹øÂ° Ä«µå ÃÊ±âÈ­
+            GameManager.I.firstCard = null;
         }
     }
 
     public void openCard()
     {
-        // Ä«µå°¡ 2Àå µÚÁıÇô ÀÖ´Â µ¿¾È ´Ù¸¥ Ä«µåµé Å¬¸¯ ¸·±â
+        // ì¹´ë“œê°€ 2ì¥ ë’¤ì§‘í˜€ ìˆëŠ” ë™ì•ˆ ë‹¤ë¥¸ ì¹´ë“œë“¤ í´ë¦­ ë§‰ê¸°
         if (GameManager.I.cardCounter > 1) return;
 
+        // cardCounter : í˜„ì¬ ê²Œì„ì— ë’¤ì§‘í˜€ ìˆëŠ” ì¹´ë“œ ê°œìˆ˜ ì¹´ìš´íŠ¸
         GameManager.I.cardCounter++;
 
         audioSource.PlayOneShot(flip);
         anim.SetBool("isOpen", true);
-        Invoke("openCardInvoke", 0.2f); // 0.2ÃÊ ÈÄ ½ÇÇà
+        Invoke("openCardInvoke", 0.2f); // 0.2ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         if (GameManager.I.firstCard == null)
         {
             GameManager.I.firstCard = gameObject;
 
-            // Ã¹ ¹øÂ° Ä«µå°¡ µÚÁıÈù ½Ã°£ ÀúÀåÇÏ±â
-            check_time = GameManager.I.time;
+            // ì²« ë²ˆì§¸ ì¹´ë“œê°€ ë’¤ì§‘íŒ ì‹œê°„ ì €ì¥í•˜ê¸°
+            check_time = GameManager.I.gameTime;
         } else
         {
             GameManager.I.secondCard = gameObject;
@@ -73,7 +75,7 @@ public class card : MonoBehaviour
         Destroy(gameObject);
 
         GameManager.I.cardCounter = 0;
-        check_time= 999.0f;
+        check_time = 0.0f;
     }
 
     public void closeCard()
@@ -88,6 +90,6 @@ public class card : MonoBehaviour
         transform.Find("front").gameObject.SetActive(false);
 
         GameManager.I.cardCounter = 0;
-        check_time = 999.0f;
+        check_time = 0.0f;
     }
 }
