@@ -46,6 +46,20 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // startBtn으로 넘어온 typecase 값에따라 시간을 조절하는 if문
+        if (startBtn.typecase == 0)
+        {
+            time = 120.0f;
+        }
+        else if (startBtn.typecase == 1)
+        {
+            time = 90.0f;
+        }
+        else if (startBtn.typecase == 2)
+        {
+            time = 60.0f;
+        }
+
         Time.timeScale = 1.0f;
         audioManager.SetActive(true);
 
@@ -64,15 +78,16 @@ public class GameManager : MonoBehaviour
 
         if(isCardGenerated)
         {
-            time += Time.deltaTime;
+            //시간이 감소
+            time -= Time.deltaTime;
             timeTxt.text = time.ToString("N2");
 
-            if (time > 20.0f)
+            if (time < 20.0f)
             {
                 timeTxt.text = "<color=red>" + time.ToString("N2") + "</color>"; // timeTxt의 색을 빨간색으로 변경
             }
 
-            if (time > 30.0f)
+            if (time < 0.0f)
             {
                 GameEnd();
             }
@@ -153,6 +168,20 @@ public class GameManager : MonoBehaviour
             firstCard.transform.Find("back").GetComponent<SpriteRenderer>().color = new Color(140 / 255f, 140 / 255f, 160 / 255f, 255 / 255f);
             secondCard.transform.Find("back").GetComponent<SpriteRenderer>().color = new Color(140 / 255f, 140 / 255f, 160 / 255f, 255 / 255f);
             audioSource.PlayOneShot(fail);
+
+            // 짝맞추기 실패했을때 시간을 감소시킴
+            if (startBtn.typecase == 0)
+            {
+                time -= 5.0f;
+            }
+            else if (startBtn.typecase == 1)
+            {
+                time -= 4.0f;
+            }
+            else if (startBtn.typecase == 2)
+            {
+                time -= 3.0f;
+            }
         }
 
         firstCard = null;
