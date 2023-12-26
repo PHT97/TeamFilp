@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
 
     public Sprite[] sprites;
 
+    // 분
+    int min;
+    // 초
+    float sec;
+
     // 결과창
     public GameObject endPanel;
     // 카드 매칭 시도 횟수 카운터
@@ -80,11 +85,24 @@ public class GameManager : MonoBehaviour
         {
             //시간이 감소
             time -= Time.deltaTime;
-            timeTxt.text = time.ToString("N2");
+            //전체 시간이 60초보다 클때
+            if (time >= 60.0f)
+            {
+                min = (int)time / 60;
+                sec = time % 60;
+                timeTxt.text = min + ":" + (int)sec;
+            }
+            //전체시간이 60초보다 작을때
+            if(time <= 60.0f)
+            {
+                min = 0;
+                sec = time % 60;
+                timeTxt.text = min + ":" + (int)sec;
+            }
 
             if (time < 20.0f)
             {
-                timeTxt.text = "<color=red>" + time.ToString("N2") + "</color>"; // timeTxt의 색을 빨간색으로 변경
+                timeTxt.text = "<color=red>" + min + ":" + (int)sec + "</color>"; // timeTxt의 색을 빨간색으로 변경
             }
 
             if (time < 0.0f)
