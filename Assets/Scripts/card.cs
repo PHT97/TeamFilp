@@ -29,6 +29,7 @@ public class card : MonoBehaviour
         {
             check_time = 0.0f;
             GameManager.I.firstCard.GetComponent<card>().closeCard();
+            GameManager.I.firstCard.transform.Find("back").GetComponent<SpriteRenderer>().color = new Color(140 / 255f, 140 / 255f, 160 / 255f, 255 / 255f);
 
             GameManager.I.firstCard = null;
         }
