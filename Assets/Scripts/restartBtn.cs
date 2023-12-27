@@ -18,6 +18,7 @@ public class restartBtn : MonoBehaviour
     }
     public void restart()
     {
+        audioManager.I.audioSource.UnPause();
         stopPanel.SetActive(false);
         Time.timeScale = 1;
     }

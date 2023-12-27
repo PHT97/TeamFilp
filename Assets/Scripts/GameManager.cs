@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     public int cardCounter = 0;
     // 점수 표시 Text
     public Text scoreTxt;
+    public Text ingameScoreTxt;
     // 점수
     public int score = 30;      // 기본 점수
     // 틀릴 경우 시간 감소가 되는 time과 별개의 시간
@@ -244,6 +245,8 @@ public class GameManager : MonoBehaviour
         {
             score = 0;
         }
+        // 점수 표기
+        ingameScoreTxt.text = score.ToString();
     }
 
     void GameEnd()
@@ -256,7 +259,7 @@ public class GameManager : MonoBehaviour
         // 남은 시간의 십의 자리 수 * 5 만큼 점수 더해주기
         // score += (int)(제한시간 - time) / 10 * 5;
         sumScore( (int)endTime / 10 * 5);
-        // 점수 표기
+
         scoreTxt.text = score.ToString();
 
         count.text = counter.ToString();

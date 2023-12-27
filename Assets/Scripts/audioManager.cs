@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class audioManager : MonoBehaviour
 {
+    public static audioManager I;
     public AudioClip bgmusic;
     public AudioSource audioSource;
     float newSpeed = 1.2f; // 배경음의 배속 속도
+
+    private void Awake()
+    {
+        I = this;
+    }
 
     // Start is called before the first frame update
     void Start()

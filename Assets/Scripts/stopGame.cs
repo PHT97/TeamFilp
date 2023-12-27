@@ -19,6 +19,7 @@ public class stopGame : MonoBehaviour
     }
     public void stopgame()
     {
+        audioManager.I.audioSource.Pause();
         stopPanel.SetActive(true);
         Time.timeScale = 0;
     }
