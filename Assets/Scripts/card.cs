@@ -39,24 +39,30 @@ public class card : MonoBehaviour
         // 카드가 2장 뒤집혀 있는 동안 다른 카드들 클릭 막기
         if (GameManager.I.cardCounter > 1) return;
 
-        // cardCounter : 현재 게임에 뒤집혀 있는 카드 개수 카운트
-        GameManager.I.cardCounter++;
-
-        audioSource.PlayOneShot(flip);
-        anim.SetBool("isOpen", true);
-        Invoke("openCardInvoke", 0.2f); // 0.2�� �� ����
-
         if (GameManager.I.firstCard == null)
         {
+            openEffect();
             GameManager.I.firstCard = gameObject;
 
             // 첫 번째 카드가 뒤집힌 시간 저장하기
             check_time = GameManager.I.gameTime;
         } else
         {
-            GameManager.I.secondCard = gameObject;
-            GameManager.I.isMatched();
+            if(GameManager.I.firstCard != gameObject)
+            {
+                openEffect();
+                GameManager.I.secondCard = gameObject;
+                GameManager.I.isMatched();
+            }
         }
+    }
+
+    private void openEffect()
+    {
+        GameManager.I.cardCounter++; // cardCounter : 현재 게임에 뒤집혀 있는 카드 개수 카운트
+        audioSource.PlayOneShot(flip);
+        anim.SetBool("isOpen", true);
+        Invoke("openCardInvoke", 0.2f); // 0.2�� �� ����
     }
 
     void openCardInvoke()
@@ -86,9 +92,9 @@ public class card : MonoBehaviour
     void closeCardInvoke()
     {
         anim.SetBool("isOpen", false);
-        transform.Find("back").gameObject.SetActive(true);
         transform.Find("front").gameObject.SetActive(false);
-
+        transform.Find("back").gameObject.SetActive(true);
+        
         GameManager.I.cardCounter = 0;
         check_time = 0.0f;
     }
