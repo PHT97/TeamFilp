@@ -187,6 +187,8 @@ public class GameManager : MonoBehaviour
                 //종료시키자!!
                 GameEnd();
             }
+            //짝맞추기 성공시 5초추가
+            time += 5.0f;
         } else
         {
             //덮자
@@ -246,7 +248,6 @@ public class GameManager : MonoBehaviour
 
     void GameEnd()
     {
-        Debug.Log("GameEnd");
         // 결과창 띄우기
         endPanel.SetActive(true);
 
