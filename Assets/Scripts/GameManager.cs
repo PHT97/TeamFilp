@@ -136,8 +136,8 @@ public class GameManager : MonoBehaviour
             newCard.transform.parent = GameObject.Find("cards").transform;
 
             float x = (i / 5) * 1.4f - 2.1f;
-            float y = (i % 5) * 1.4f - 3.5f;
-            newCard.transform.position = new Vector3(-2.1f, -3.5f, 0);
+            float y = (i % 5) * 1.4f - 4.0f;
+            newCard.transform.position = new Vector3(-2.1f, -4.0f, 0);
 
             newCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = sprites[cards[i]];
             newCard.GetComponent<card>().cardName = sprites[cards[i]].name.Substring(0, 3);
