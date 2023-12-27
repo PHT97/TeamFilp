@@ -48,6 +48,7 @@ public class card : MonoBehaviour
             check_time = GameManager.I.gameTime;
         } else
         {
+            // 첫번째카드오브젝트가 다를때만
             if(GameManager.I.firstCard != gameObject)
             {
                 openEffect();
