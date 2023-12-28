@@ -101,28 +101,17 @@ public class GameManager : MonoBehaviour
             {
                 min = (int)time / 60;
                 sec = time % 60;
-                if (sec > 10)
-                {
-                    timeTxt.text = min + ":" + (int)sec;
-                }
-                else if(sec < 10)
-                {
-                    timeTxt.text = min + ":" + "0" + (int)sec;
-                }
+                // string.Format = 지정된 형식에 따라 개체의 값을 문자열로 변환하여 다른 문자열에 삽입하는 함수입니다
+                // 이때 {0:D2} 는 0으로 표시되는 첫번째 인수입니다, {1:D2} 는 1로표시되는 두번째 인수입니다
+                // D2는 2자리 이상의 십진수숫자로 형식화되도록 지정합니다. 숫자가 2자리보다 작으면 선행0이 추가됩니다.
+                timeTxt.text = string.Format("{0:D2}:{1:D2}", min, (int)sec);
             }
             //전체시간이 60초보다 작을때
             if(time <= 60.0f)
             {
                 min = 0;
                 sec = time % 60;
-                if (sec > 10)
-                {
-                    timeTxt.text = min + ":" + (int)sec;
-                }
-                else if (sec < 10)
-                {
-                    timeTxt.text = min + ":" + "0" + (int)sec;
-                }
+                timeTxt.text = string.Format("{0:D2}:{1:D2}", min, (int)sec);
             }
 
             if (time < 20.0f)
