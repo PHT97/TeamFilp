@@ -101,14 +101,28 @@ public class GameManager : MonoBehaviour
             {
                 min = (int)time / 60;
                 sec = time % 60;
-                timeTxt.text = min + ":" + (int)sec;
+                if (sec > 10)
+                {
+                    timeTxt.text = min + ":" + (int)sec;
+                }
+                else if(sec < 10)
+                {
+                    timeTxt.text = min + ":" + "0" + (int)sec;
+                }
             }
             //전체시간이 60초보다 작을때
             if(time <= 60.0f)
             {
                 min = 0;
                 sec = time % 60;
-                timeTxt.text = min + ":" + (int)sec;
+                if (sec > 10)
+                {
+                    timeTxt.text = min + ":" + (int)sec;
+                }
+                else if (sec < 10)
+                {
+                    timeTxt.text = min + ":" + "0" + (int)sec;
+                }
             }
 
             if (time < 20.0f)
